@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+
+  <a class="navbar-brand" href="#">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <div *ngIf="status_login; else elseBlock" class="navbar-nav">
+      <a class="btn btn-outline-success" (click)="logout()" routerLinkActive="inactive">Logout</a>
+    </div>
+    <ng-template #elseBlock>
+      <a routerLink="/" class="btn btn-outline-success" routerLinkActive="inactive">Login</a>
+      <a routerLink="/register" class="btn btn-outline-success" routerLinkActive="inactive">Register</a>
+    </ng-template>
+  </div>
+</nav>

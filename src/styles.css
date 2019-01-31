@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+  height: 100%;
+}
+/************new Buttons styles****************/
+.btn-outline-success{
+  color: #364e68;
+  border-color: #364e68;
+}
+.btn-outline-success:hover{
+  color: #fff!important;
+  background-color: #364e68;
+  border-color: #364e68;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: #364e68;
+    border-color: #364e68;
+}
+.btn-outline-success:focus, .btn-outline-success.focus {
+    box-shadow: 0 0 0 0.2rem rgba(152, 204, 211, 0.5);
+}
+
+.btn-primary{
+  background-color: #364e68;
+  border-color: #364e68;
+}
+.btn-primary:hover{
+  background-color: #132238;
+  border-color: #132238;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #132238;
+    border-color: #132238;
+}
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(152, 204, 211, 0.5);
+}

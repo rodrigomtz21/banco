@@ -1,0 +1,9 @@
+.container{
+  padding-top: 100px;
+}
+button:focus {
+  outline: 0!important;
+}
+#container-table{
+  padding-top: 10px;
+}

@@ -1,0 +1,9 @@
+.container, #row-form{
+  height: 100%;
+}
+.container-form{
+  text-align: center;
+}
+label, small{
+  color: #132238;
+}

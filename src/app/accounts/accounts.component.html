@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Create new account!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-10 col-md-10 col-lg-10">
+            <div class="form-group">
+              <label for="InputUserId">User id</label>
+              <input type="userId" class="form-control" [(ngModel)]="account.userId" id="InputUserId" aria-describedby="userIdHelp" readonly>
+              <small id="userIdHelp" class="form-text text-muted">You can read only!.</small>
+            </div>
+            <div class="form-group" >
+  					    <label for="InputType">Card type</label>
+  					    <select class="form-control" id="InputType" [(ngModel)]="account.type">
+  					    	<option value="" >Choose an option...</option>
+  					    	<option *ngFor="let card of cards" [value]="card.type">{{card.name}}</option>
+  					    </select>
+  					</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveAccount()">Save changes</button>
+      </div>
+    </ng-template>
+    <div class="col-md-12 col-lg-12">
+      <button class="btn btn-primary" (click)="open(content)">
+        Create new account
+      </button>
+    </div>
+    <div class="col-12 col-md-12 col-lg-12" style="padding-top:10px;">
+      <ngb-alert type="success" *ngIf="!closed" (close)="closed= true">{{success_message}}</ngb-alert>
+    </div>
+    <div class="col-md-12 col-lg-12" id="container-table">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th *ngFor= "let header of headers_accounts" scope="col">{{header.title}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor= "let account of accounts">
+            <td *ngFor= "let header of headers_accounts">{{account[header.name]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Modal -->
+
+  </div>
+</div>
