@@ -1,3 +1,6 @@
+.container, #row-form{
+  height: 100%;
+}
 .container{
   padding-top: 100px;
 }

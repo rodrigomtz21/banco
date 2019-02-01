@@ -7,11 +7,11 @@
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <div *ngIf="status_login; else elseBlock" class="navbar-nav">
-      <a class="btn btn-outline-success" (click)="logout()" routerLinkActive="inactive">Logout</a>
+      <a class="btn btn-outline-success" (click)="logout()">Logout</a>
     </div>
     <ng-template #elseBlock>
-      <a routerLink="/" class="btn btn-outline-success" routerLinkActive="inactive">Login</a>
-      <a routerLink="/register" class="btn btn-outline-success" routerLinkActive="inactive">Register</a>
+      <a routerLink="/" class="btn btn-outline-success" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Login</a>
+      <a routerLink="/register" class="btn btn-outline-success" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Register</a>
     </ng-template>
   </div>
 </nav>

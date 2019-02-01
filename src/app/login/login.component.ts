@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ModelLoginUser} from '../modelloginuser';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from "@angular/router";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -15,9 +16,14 @@ export class LoginComponent implements OnInit {
   userForm;
   loginError:boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    /**************Spinner starts***********************/
+    this.spinner.show();
+    setTimeout(() => {
+        this.spinner.hide();
+    }, 1500);
     /**************Form validation**********************/
     this.userForm = new FormGroup({
       'email': new FormControl(this.user.email, [

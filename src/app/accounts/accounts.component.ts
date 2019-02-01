@@ -3,6 +3,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 import {ModelCreateAccount} from '../modelcreateaccount';
 @Component({
   /*selector: 'app-accounts',*/
@@ -10,16 +12,16 @@ import {ModelCreateAccount} from '../modelcreateaccount';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
+  account = new ModelCreateAccount("", "", "");
+
   closeResult: string;
   success_message:string = "";
   closed = true;
 
-  account = new ModelCreateAccount("", "", "");
   modalReference = null;
-
-
   accounts = [];
   cards = [];
+  /**************Headers of table accounts*******************/
   headers_accounts = [{
     name: '_id',
     title: 'ID'
@@ -42,9 +44,15 @@ export class AccountsComponent implements OnInit {
     name: 'balance',
     title: 'Balance'
   }]
-  constructor(private http: HttpClient, private router: Router, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, private router: Router, private modalService: NgbModal, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    /**************Spinner starts***********************/
+    this.spinner.show();
+    setTimeout(() => {
+        this.spinner.hide();
+    }, 1500);
+    /**********Get token and userId**********************/
     const helper = new JwtHelperService();
     const token: string = localStorage.getItem('token');
     this.account.userId = localStorage.getItem('userId');
