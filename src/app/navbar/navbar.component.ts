@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  public isCollapsed = false;
   status_login:boolean;
   constructor(private router: Router) { }
 

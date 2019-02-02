@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
   get email() { return this.userForm.get('email'); }
   get password() { return this.userForm.get('password'); }
+
   login() {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     //return new Promise((resolve, reject) => {
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit {
                 //console.log(res);
                 const helper = new JwtHelperService();
                 const decodedToken = helper.decodeToken(res['token']);
-                //console.log(decodedToken);
+                console.log(decodedToken);
                 localStorage.setItem('token', res['token']);
                 localStorage.setItem('userId', decodedToken.id);
 

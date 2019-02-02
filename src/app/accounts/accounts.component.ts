@@ -65,13 +65,14 @@ export class AccountsComponent implements OnInit {
       'Content-Type': 'application/json',
       'X-access-token': token
     });
-
+    /****************Get accounts*******************/
     this.http.get('https://mighty-refuge-81707.herokuapp.com/api/accounts',{
       headers
     }).subscribe(data => {
       console.log(data['response']);
       this.accounts = data['response'];
     });
+    /*************Ge list cardas***************************/
     this.http.get('https://mighty-refuge-81707.herokuapp.com/api/catalogs/cards',{
       headers
     }).subscribe(data => {
@@ -97,6 +98,7 @@ export class AccountsComponent implements OnInit {
       'Content-Type': 'application/json',
       'X-access-token': token
     });
+    console.log(headers);
     console.log(this.account);
     this.http.post('https://mighty-refuge-81707.herokuapp.com/api/accounts',this.account,{
         headers,
